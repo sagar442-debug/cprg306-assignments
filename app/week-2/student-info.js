@@ -6,6 +6,7 @@ export default function StudentInfo() {
       {/* My name */}
       <h1>Sagar Sapkota</h1>
       <Link
+        className="mt-40"
         href={"https://github.com/sagar442-debug?page=1&tab=repositories"}
         target="_blank"
       >
