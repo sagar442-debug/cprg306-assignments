@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-function NewItem() {
+function NewItem({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("produce");
@@ -34,16 +34,10 @@ function NewItem() {
   ];
 
   const finalOutput = (e) => {
+    let id = (Math.random() + 1).toString(36).substring(7);
     e.preventDefault();
-    console.log({ name, quantity, category });
-    alert(
-      "Added item: " +
-        name +
-        " Quantity: " +
-        quantity +
-        " Category: " +
-        category
-    );
+    console.log({ id, name, quantity, category });
+    onAddItem({ id, name, quantity, category });
     setName("");
     setQuantity(1);
     setCategory("Produce");
@@ -107,6 +101,7 @@ function NewItem() {
               className=" bg-sky-600 p-2 cursor-pointer w-64"
               type="submit"
               value="Submit"
+              onSubmit={finalOutput}
             />
           </div>
         </form>

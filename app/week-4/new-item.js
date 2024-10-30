@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-function NewItem() {
+function NewItem({ onAddItem }) {
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
